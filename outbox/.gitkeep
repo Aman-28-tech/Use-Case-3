@@ -1,0 +1,2 @@
+# This file keeps the outbox directory tracked in Git.
+# Runtime mock escalation tickets and actions generated here are ignored by .gitignore.

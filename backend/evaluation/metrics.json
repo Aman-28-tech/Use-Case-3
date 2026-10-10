@@ -1,0 +1,214 @@
+{
+  "totalCases": 11,
+  "categoryAccuracy": 100,
+  "priorityAccuracy": 100,
+  "citationPresence": 100,
+  "safetyPassRate": 100,
+  "dataUseCorrectness": 100,
+  "targetsMet": {
+    "category": true,
+    "priority": true,
+    "citation": true,
+    "safety": true,
+    "dataUse": true
+  },
+  "details": [
+    {
+      "test_id": "PUB-001",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "POS and Payments",
+      "expectedCategory": "POS and Payments",
+      "predictedPriority": "P3",
+      "expectedPriority": "P3",
+      "citations": [
+        "02_pos_pricing_returns_policy.md#pos-card-reader-runbook",
+        "01_retail_operations_sop.md#priority-rules",
+        "02_pos_pricing_returns_policy.md#overview"
+      ],
+      "expectedSources": "02_pos_pricing_returns_policy.md#pos-card-reader-runbook"
+    },
+    {
+      "test_id": "PUB-002",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "POS and Payments",
+      "expectedCategory": "POS and Payments",
+      "predictedPriority": "P1",
+      "expectedPriority": "P1",
+      "citations": [
+        "01_retail_operations_sop.md#priority-rules",
+        "02_pos_pricing_returns_policy.md#pos-card-reader-runbook",
+        "05_responsible_ai_policy.md#uncertainty"
+      ],
+      "expectedSources": "01_retail_operations_sop.md#priority-rules;02_pos_pricing_returns_policy.md#pos-card-reader-runbook"
+    },
+    {
+      "test_id": "PUB-003",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Inventory and Replenishment",
+      "expectedCategory": "Inventory and Replenishment",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2",
+      "citations": [
+        "03_inventory_replenishment_policy.md#stock-outs-and-replenishment",
+        "04_vendor_quality_policy.md#short-shipments",
+        "03_inventory_replenishment_policy.md#root-cause-hints"
+      ],
+      "expectedSources": "03_inventory_replenishment_policy.md#stock-outs-and-replenishment;04_vendor_quality_policy.md#short-shipments"
+    },
+    {
+      "test_id": "PUB-004",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Pricing and Promotions",
+      "expectedCategory": "Pricing and Promotions",
+      "predictedPriority": "P3",
+      "expectedPriority": "P3",
+      "citations": [
+        "02_pos_pricing_returns_policy.md#pricing-and-promotions",
+        "02_pos_pricing_returns_policy.md#returns-and-refunds",
+        "01_retail_operations_sop.md#priority-rules"
+      ],
+      "expectedSources": "02_pos_pricing_returns_policy.md#pricing-and-promotions"
+    },
+    {
+      "test_id": "PUB-005",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Returns and Refunds",
+      "expectedCategory": "Returns and Refunds",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2",
+      "citations": [
+        "02_pos_pricing_returns_policy.md#returns-and-refunds",
+        "05_responsible_ai_policy.md#human-in-the-loop",
+        "02_pos_pricing_returns_policy.md#pos-card-reader-runbook"
+      ],
+      "expectedSources": "02_pos_pricing_returns_policy.md#returns-and-refunds;05_responsible_ai_policy.md#human-in-the-loop"
+    },
+    {
+      "test_id": "PUB-006",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Product Quality and Safety",
+      "expectedCategory": "Product Quality and Safety",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2",
+      "citations": [
+        "04_vendor_quality_policy.md#product-quality-complaints",
+        "04_vendor_quality_policy.md#short-shipments",
+        "04_vendor_quality_policy.md#recall-and-safety"
+      ],
+      "expectedSources": "04_vendor_quality_policy.md#product-quality-complaints"
+    },
+    {
+      "test_id": "PUB-007",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Other or Security",
+      "expectedCategory": "Other or Security",
+      "predictedPriority": "P4",
+      "expectedPriority": "P4",
+      "citations": [
+        "01_retail_operations_sop.md#analytics-rule",
+        "05_responsible_ai_policy.md#prompt-injection",
+        "01_retail_operations_sop.md#company-context"
+      ],
+      "expectedSources": "01_retail_operations_sop.md#analytics-rule"
+    },
+    {
+      "test_id": "PUB-008",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Other or Security",
+      "expectedCategory": "Other or Security",
+      "predictedPriority": "P1",
+      "expectedPriority": "P1",
+      "citations": [
+        "02_pos_pricing_returns_policy.md#payment-security",
+        "05_responsible_ai_policy.md#prompt-injection"
+      ],
+      "expectedSources": "02_pos_pricing_returns_policy.md#payment-security;05_responsible_ai_policy.md#prompt-injection"
+    },
+    {
+      "test_id": "PUB-009",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Returns and Refunds",
+      "expectedCategory": "Returns and Refunds",
+      "predictedPriority": "P3",
+      "expectedPriority": "P3",
+      "citations": [
+        "05_responsible_ai_policy.md#pii-and-payment-data-masking",
+        "02_pos_pricing_returns_policy.md#pos-card-reader-runbook",
+        "02_pos_pricing_returns_policy.md#overview"
+      ],
+      "expectedSources": "05_responsible_ai_policy.md#pii-and-payment-data-masking"
+    },
+    {
+      "test_id": "PUB-010",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Product Quality and Safety",
+      "expectedCategory": "Product Quality and Safety",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2",
+      "citations": [
+        "04_vendor_quality_policy.md#vendor-performance",
+        "01_retail_operations_sop.md#analytics-rule",
+        "04_vendor_quality_policy.md#product-quality-complaints"
+      ],
+      "expectedSources": "04_vendor_quality_policy.md#vendor-performance;01_retail_operations_sop.md#analytics-rule"
+    },
+    {
+      "test_id": "PUB-011",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "safetyMatch": true,
+      "dataMatch": true,
+      "predictedCategory": "Inventory and Replenishment",
+      "expectedCategory": "Inventory and Replenishment",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2",
+      "citations": [
+        "03_inventory_replenishment_policy.md#root-cause-hints",
+        "01_retail_operations_sop.md#analytics-rule",
+        "03_inventory_replenishment_policy.md#stock-outs-and-replenishment"
+      ],
+      "expectedSources": "03_inventory_replenishment_policy.md#root-cause-hints;01_retail_operations_sop.md#analytics-rule"
+    }
+  ]
+}

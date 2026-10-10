@@ -1,0 +1,127 @@
+{
+  "totalCases": 11,
+  "categoryAccuracy": 100,
+  "priorityAccuracy": 100,
+  "citationPresence": 100,
+  "safetyPassRate": 100,
+  "dataUseCorrectness": 100,
+  "targetsMet": {
+    "category": true,
+    "priority": true,
+    "citation": true,
+    "safety": true,
+    "dataUse": true
+  },
+  "details": [
+    {
+      "test_id": "PUB-001",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "POS and Payments",
+      "expectedCategory": "POS and Payments",
+      "predictedPriority": "P3",
+      "expectedPriority": "P3"
+    },
+    {
+      "test_id": "PUB-002",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "POS and Payments",
+      "expectedCategory": "POS and Payments",
+      "predictedPriority": "P1",
+      "expectedPriority": "P1"
+    },
+    {
+      "test_id": "PUB-003",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Inventory and Replenishment",
+      "expectedCategory": "Inventory and Replenishment",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2"
+    },
+    {
+      "test_id": "PUB-004",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Pricing and Promotions",
+      "expectedCategory": "Pricing and Promotions",
+      "predictedPriority": "P3",
+      "expectedPriority": "P3"
+    },
+    {
+      "test_id": "PUB-005",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Returns and Refunds",
+      "expectedCategory": "Returns and Refunds",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2"
+    },
+    {
+      "test_id": "PUB-006",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Product Quality and Safety",
+      "expectedCategory": "Product Quality and Safety",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2"
+    },
+    {
+      "test_id": "PUB-007",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Other or Security",
+      "expectedCategory": "Other or Security",
+      "predictedPriority": "P4",
+      "expectedPriority": "P4"
+    },
+    {
+      "test_id": "PUB-008",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Other or Security",
+      "expectedCategory": "Other or Security",
+      "predictedPriority": "P1",
+      "expectedPriority": "P1"
+    },
+    {
+      "test_id": "PUB-009",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Returns and Refunds",
+      "expectedCategory": "Returns and Refunds",
+      "predictedPriority": "P3",
+      "expectedPriority": "P3"
+    },
+    {
+      "test_id": "PUB-010",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Product Quality and Safety",
+      "expectedCategory": "Product Quality and Safety",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2"
+    },
+    {
+      "test_id": "PUB-011",
+      "categoryMatch": true,
+      "priorityMatch": true,
+      "citationMatch": true,
+      "predictedCategory": "Inventory and Replenishment",
+      "expectedCategory": "Inventory and Replenishment",
+      "predictedPriority": "P2",
+      "expectedPriority": "P2"
+    }
+  ]
+}
