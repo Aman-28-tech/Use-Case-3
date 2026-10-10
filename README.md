@@ -83,6 +83,53 @@ The system is built as an orchestrated multi-agent pipeline with dual-ended safe
 
 ---
 
+## 🛠️ Complete Technology Stack
+
+### ⚡ 1. Active Production Stack (Python Engine)
+| Layer | Technology | Version / Spec | Purpose & Details |
+|---|---|---|---|
+| **Programming Language** | **Python** | `3.10+` *(Tested on 3.11 & 3.14)* | Primary language for rapid AI prototyping, data analysis, and NLP pipelines. |
+| **Backend REST API** | **FastAPI** | `v0.110+` | Asynchronous REST framework providing endpoints (`/api/v1/triage`, `/api/v1/stats/dashboard`, `/health`) with auto-generated Swagger UI (`/docs`). |
+| **ASGI Server** | **Uvicorn** | `v0.28+` | High-performance asynchronous web server running the FastAPI backend on port `8000`. |
+| **Data Validation** | **Pydantic** | `v2.6+` | Strict runtime schema enforcement for all incoming and outgoing API request/response contracts. |
+| **Operations Web UI** | **Streamlit** | `v1.32+` | Powers the interactive 5-tab Operations Command Center on port `8501` with reactive state and live widgets. |
+| **Data & Analytics Engine** | **pandas** | `v2.2+` | In-memory relational joins across the 9 CSV datasets (`inventory` → `receipts` → `vendor_master`), KPI aggregations, and anchor timestamp filtering. |
+| **HTTP Networking** | **Requests** | `v2.31+` | Handles outbound network requests to Token Harbor LLM API endpoints. |
+| **Configuration** | **python-dotenv** | `v1.0+` | Securely manages local environment variables and API keys from `.env`. |
+
+### 🧠 2. AI, Machine Learning & RAG Engine
+| Component | Technique / Spec | Architecture Contract |
+|---|---|---|
+| **Multi-Agent Orchestrator** | **7-Stage Pipeline Coordinator** | Coordinates 5 autonomous agents in sequence: *Safety Pre-Screen → Triage → RAG → Data Engine → Workflow → Grounded Synthesis → Safety Post-Screen*. |
+| **Policy RAG Engine** | **Section-Aware TF-IDF / BM25** | Indexes **33 individual sections** across 5 store policy documents. Guarantees exact section citations (`filename#section`) with `[NO_EVIDENCE]` fallback if a rule does not exist. |
+| **ML Triage Classifier** | **Pure-Python Text Feature Classifier** | Zero-dependency text vectorizer and classifier trained on 550 support cases. Assigns 8 categories and normative P1–P4 priorities with confidence scoring. Immune to binary DLL execution blocks. |
+| **LLM Inference** | **Token Harbor API** | Connects to `claude-haiku-5.5:free` and `deepseek-v4-flash:free` for natural language answer synthesis. |
+| **Deterministic Grounded Synthesizer** | **Rule-Based Synthesis Fallback** | Fallback synthesizer guaranteeing answers are 100% grounded in policy citations even during offline or zero-credit situations. |
+| **Responsible AI & Cyber Defense** | **Regex Masker + Blocklist Guardrails** | Automatically masks customer phone numbers (`******3210`), redacts card numbers (`[REDACTED_CARD]`), and refuses prompt injection attacks (`"ignore previous instructions"`). |
+| **Mock Action Outbox** | **JSON Event Dispatcher** | Safe transactional action framework writing auditable JSON tickets to [`outbox/`](outbox/) with Human-in-the-Loop (`PENDING_APPROVAL` vs `SUBMITTED`) states. |
+
+### 🗄️ 3. Data & Storage Layer
+| Storage Element | Format | Description |
+|---|---|---|
+| **Normalized Store Datasets** | **9 CSV Tables** | `product_master`, `store_master`, `employee_master`, `vendor_master`, `inventory`, `receipts`, `support_cases`, `returns_quality`, `escalation_matrix`. |
+| **Normative Knowledge Base** | **5 Markdown SOPs** | `01_retail_operations_sop.md`, `02_pos_pricing_returns_policy.md`, `03_inventory_replenishment_policy.md`, `04_vendor_quality_policy.md`, `05_responsible_ai_policy.md`. |
+| **Relational Schema** | **SQLite DDL** (`DB/schema.sql`) | ANSI SQL schema with foreign keys and indexes for SQL querying. |
+
+### 🧪 4. Testing, QA & DevOps Stack
+| Area | Tool | Details |
+|---|---|---|
+| **Automated Unit Testing** | **Python `unittest`** | **16 automated test cases** in [`tests/test_copilot.py`](tests/test_copilot.py) covering health endpoints, injection defense, PII masking, RAG citations, and 3-way joins. |
+| **Benchmark Evaluation Harness** | **Custom Python Evaluator** | [`app/evaluate.py`](app/evaluate.py) evaluating all 11 public test cases against competition targets, producing [`predictions.csv`](evaluation/predictions.csv) and [`metrics.json`](evaluation/metrics.json). |
+| **Containerization** | **Docker** | [`Dockerfile`](Dockerfile) running on `python:3.11-slim`, exposing ports `8000` (API) and `8501` (UI). |
+| **Version Control & CI/CD** | **Git & GitHub** | Hosted on GitHub at [`Aman-28-tech/Use-Case-3`](https://github.com/Aman-28-tech/Use-Case-3.git) on branch `main`. |
+
+### 📱 5. Companion Reference Codebase (Cross-Platform)
+* **Node.js + Express + TypeScript** ([`backend/`](backend/)): Alternative REST API implementation using Node.js and TypeScript.
+* **Next.js 15 + React 19** ([`frontend-web/`](frontend-web/)): Modern web client with CSS modules.
+* **React Native + Expo** ([`frontend-app/`](frontend-app/)): Mobile app layout for store associates.
+
+---
+
 ## 🎯 100% Benchmark Evaluation Results (M9)
 
 The solution was evaluated against all 11 test cases in [`evaluation/public_test_cases.csv`](evaluation/public_test_cases.csv) using [`app/evaluate.py`](app/evaluate.py):
