@@ -11,17 +11,40 @@
 
 ## 📌 Executive Summary
 
-**Punjab Sports Mart** is a regional sports retail chain headquartered in Jalandhar, Punjab, specializing in cricket equipment, footballs, hockey sticks, protective gear, and team apparel. Rapid regional expansion across North India created significant frontline friction:
-- Store associates and cashiers struggle with terminal errors, high-value returns without receipts, and shelf-vs-register price discrepancies.
-- Inventory associates face repeated stock-outs without visibility into whether shortfalls stem from surge demand, inventory discrepancy, or vendor short shipments.
-- Store managers and regional leads lack unified visibility into cross-store incident trends, batch defect reports, and vendor SLA breaches.
+**Punjab Sports Mart** is a regional sports retail chain headquartered in Jalandhar, Punjab, specializing in cricket equipment, footballs, hockey sticks, protective gear, and team apparel across stores in North India (Jalandhar, Amritsar, Ludhiana, Chandigarh, Patiala).
 
-The **Retail Operations Copilot** is a production-grade multi-agent operations assistant built strictly according to [`architecture.md`](docs/architecture.md) and [`Participant_Guide.md`](Use%20Case%203/Participant_Guide.md). It delivers:
-1. **Natural-Language Triage (M1, M4):** Multi-persona issue classification across 8 categories with normative P1–P4 priority rules.
-2. **Section-Aware Policy RAG (M2, M3):** Retrieval over 5 standard operating procedures with exact `file#section` citations and genuine `NO_EVIDENCE` fallback.
-3. **Structured Data Diagnostics (M6, B1):** 4-step ordered root-cause analysis (`inventory` → `receipts` → `vendor_master` → `support_cases`) anchored to `2026-10-10 12:00:00 IST`.
-4. **Responsible AI Guardrails (M8):** Strict regex PII masking (phone, card, CVV) and prompt injection refusal routing to P1 Security.
-5. **Auditable Mock Actions (M5, M7, B3):** 15-rule escalation matrix lookup generating structured outbox JSON payloads in [`outbox/`](outbox/).
+### ❓ What Problem Are We Solving?
+Frontline retail operations face significant daily friction that leads to long checkout queues, mystery stock-outs, policy confusion, and customer dissatisfaction:
+1. **POS & Payment Disruptions:** Cashiers face terminal crashes (Error 51, gateway time-outs) and shelf-vs-register price mismatches during peak hours without knowing the exact runbook steps or when manager approval is required.
+2. **Mystery Stock-Outs & Supply Blind Spots:** Core high-demand products (e.g., English Willow Cricket Bats) repeatedly go out of stock. Store staff cannot tell whether shortages are caused by sudden store demand, inventory discrepancies, or vendor short shipments.
+3. **Complex Returns & Policy Inconsistencies:** Associates struggle to enforce return and refund policies for high-value items without receipts, risking unauthorized refunds or customer friction.
+4. **Data Silos Across 9 Disconnected Systems:** Vital operations data is fragmented across isolated CSVs (inventory, delivery receipts, vendor performance, historical incident logs), requiring slow and error-prone manual lookups.
+5. **Security & Customer Data Risks:** Frontline staff often accidentally type customer credit cards, CVVs, and phone numbers into plain-text support tickets, creating severe PCI-DSS and privacy compliance violations.
+
+---
+
+### 💡 How Are We Solving It?
+We engineered the **Punjab Sports Mart AI Retail Operations Copilot**—an enterprise multi-agent assistant that runs 100% locally to empower store staff with instant, grounded, and safe decision support:
+
+1. **Natural-Language Triage & Policy Retrieval (M1, M4):**
+   - Store employees submit issues in plain conversational English or click 1-click incident presets.
+   - The Copilot automatically triages the problem into 1 of 8 operational categories and assigns a normative priority (**P1 Critical Outage** down to **P4 Routine Inquiry**).
+   - Retrieves the exact standard operating procedure across 5 policy documents with clickable `file#section` citations and an unconditional `[NO_EVIDENCE]` guardrail that prevents hallucinations.
+
+2. **Cross-Table Root Cause Analytics (M6, B1):**
+   - A 4-step diagnostic data engine performs relational joins across 4 CSV files (`inventory.csv` → `receipts.csv` → `vendor_master.csv` → `support_cases.csv`).
+   - Discovers the exact root cause of stock-outs in seconds (e.g., proving that a vendor delivered only 36% of an ordered shipment and has a low historical fill rate).
+
+3. **Responsible AI & Built-in Guardrails (M8):**
+   - **Dynamic PII Masking:** Automatically catches and redacts customer credit cards (`[REDACTED_CARD]`) and masks phone numbers (`******<last4>`) before tickets are created.
+   - **Prompt Injection Defense:** Intercepts jailbreak attacks (*"ignore previous instructions"*, *"reveal passwords"*), returns immediate safety refusals, and flags P1 Security alerts.
+
+4. **Auditable Mock Actions & Escalation Workflows (M5, M7, B3):**
+   - Evaluates a 15-rule escalation matrix with SLA deadlines.
+   - Automatically drafts structured JSON tickets (POS runbooks, vendor claims, quality hold notices) into a local [`outbox/`](outbox/) directory, enforcing Human-in-the-Loop manager approval (`PENDING_APPROVAL` vs `SUBMITTED`) for high-impact actions.
+
+5. **Executive Operations Command Center (B2):**
+   - Real-time management dashboard tracking 550 incidents, active open cases, critical outages, regional distributions, and vendor risk watchlists anchored to the official competition timestamp (`2026-10-10 12:00:00 IST`).
 
 ---
 
