@@ -579,7 +579,7 @@ sequenceDiagram
         W-->>U: Immediate escalate first, then ask register IDs
     else approval-needed (treadmill 24999 no receipt PUB-005)
         T->>W: P2 + returns matrix #6 (approval Yes)
-        W-->>U: Manager approval required; assistant must NOT approve
+        W-->>U: Manager approval required, assistant must NOT approve
     end
 ```
 
